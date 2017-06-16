@@ -179,6 +179,15 @@ public class FBAppEventsLoggerModule extends ReactContextBaseJavaModule {
     }
 
     /**
+    * Logs an app event that tracks that the application was open via Push Notification.
+    * @param payload Notification payload received.
+    */
+    @ReactMethod
+    public void logPushNotificationOpen(@Nullable ReadableMap payload) {
+        mAppEventLogger.logPushNotificationOpen(Arguments.toBundle(payload));
+    }
+
+    /**
      * Sets and sends registration id to register the current app for push notifications.
      * @param registrationId RegistrationId received from GCM.
      */

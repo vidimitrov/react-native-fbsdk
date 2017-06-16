@@ -35,7 +35,7 @@ type AppEventsFlushBehavior =
    * Only flush when AppEventsLogger.flush() is explicitly invoked.
    */
   'explicity-only';
-type Params = {[key: string]: string | number};
+type Params = { [key: string]: string | number };
 
 module.exports = {
   /**
@@ -72,6 +72,13 @@ module.exports = {
    */
   logPurchase(purchaseAmount: number, currencyCode: string, parameters: ?Object) {
     AppEventsLogger.logPurchase(purchaseAmount, currencyCode, parameters);
+  },
+
+  /**
+  * Logs an app event that tracks that the application was open via Push Notification.
+  */
+  logPushNotificationOpen(payload: ?Object) {
+    AppEventsLogger.logPushNotificationOpen(payload);
   },
 
   /**
